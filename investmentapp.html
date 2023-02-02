@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fixed Deposit Investment App</title>
+    <style type="text/css">
+      #container {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        align-items: center;
+        background-color: burlywood;
+        padding: 20mm;
+      }
+    </style>  
+  </head> 
+  <body>
+  <div id="container">
+    <h3>Fixed Deposit Investment App</h3>
+    <label for="amount"> Principal Amount</label>
+    <input type="number" id="principal" placeholder="Enter Principal Amount">
+    <br>
+    <label for="tenure"> Tenure</label>
+    <input type="number" id="tenure" placeholder="Enter Tenure (in months)"><br>
+    <button id="calculateButton">Calculate-Profit</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    function calculateButton (principal,tenure)
+      let rate = 10;
+      return principal * (1 + rate/100 * tenure/12);
+
+      let principalInput= document.getElementById("principal");
+      let tenureInput= document.getElementById("tenure");
+      let resultContainer= document.getElementById("result");
+      let calculateButton= document.getElementById("Calculate-Button");
+      calculateButton.addEventListener("click", function(){
+
+        let principal= parseFloat(principalInput.value);
+        let tenure= parseFloat(tenureInput.value);
+        let profit= calculateProfit(principal, tenure);
+        resultContainer.innerHTML = "profit:$" + profit.toFixed(2); 
+      });
+
+  </script>
+
+  </body>
+  
+</html>
+
+  
